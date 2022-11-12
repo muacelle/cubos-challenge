@@ -25,7 +25,7 @@ const Results = () => {
                             <section className='results-info'>
                                 <header className='header-info'>
                                     <span className='average'>{re.vote_average * 10}%</span>
-                                    <h3 className='results-title'>{re.title}</h3>
+                                    <h3 className='results-title' onClick={() => selectMovie!(re.id)}>{re.title}</h3>
                                 </header>
                                 <p className='release'>{re.release_date}</p>
                                 <p className='overview'>{re.overview}</p>
