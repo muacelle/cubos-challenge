@@ -154,6 +154,39 @@ html {
   padding: 5px 12px;
 }
 
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  padding: 30px;
+  margin-top: 10px;
+}
+
+.btn {
+  font-family: 'Abel';
+  font-size: 1.3rem;
+  color: var(--dark-blue);
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+}
+
+.current-btn {
+  cursor: pointer;
+  background: var(--dark-blue);
+  padding: 7px;
+  font-size: 1.7rem;
+  color: var(--light-blue);
+  border: 0.2rem solid var(--light-blue);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  outline: 0.15rem solid var(--dark-blue);
+  line-height: 0;
+}
+
 /* Modal */
 
 .modal-overlay {

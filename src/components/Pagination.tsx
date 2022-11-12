@@ -12,18 +12,17 @@ const Pagination = () => {
     }
 
     return (
-        <div>
-            <h3>Results: {results?.length}</h3>
-            <li>    
+        <footer>
+            <li className='pagination'>    
                 {pages && pages.map((page, index) => 
                     (<button 
                         key={index} 
                         onClick={() => setCurrentPage(page)} 
-                        className={page === currentPage ? 'current' : ''}>{page}
+                        className={page === currentPage ? 'current-btn' : 'btn'}>{page}
                     </button>)
                 )}
             </li>
-        </div>
+        </footer>
     )
 }
 
