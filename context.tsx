@@ -36,6 +36,7 @@ type ContextType = {
     selectMovie: ((id: number) => void) | null
     selectedMovie: MovieInfo | null
     showModal: boolean
+    setShowModal: ((arg: boolean) => void) | null
     setCurrentPage: ((page: number) => void) | null
     currentPage: number
 }
@@ -47,7 +48,7 @@ type Trailer = {
 }
 
 const AppContext = React.createContext<ContextType>({ fetchResults: null, results: null, selectMovie: null, 
-    selectedMovie: null, showModal: false, setCurrentPage: null, currentPage: 1 })
+    selectedMovie: null, showModal: false, setShowModal: null, setCurrentPage: null, currentPage: 1 })
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
@@ -111,7 +112,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }
 
     return (
-        <AppContext.Provider value={{ fetchResults, results, selectMovie, selectedMovie, showModal, setCurrentPage, currentPage }}>
+        <AppContext.Provider value={{ fetchResults, results, selectMovie, selectedMovie, showModal, setShowModal, setCurrentPage, currentPage }}>
             {children}
         </AppContext.Provider>
     )

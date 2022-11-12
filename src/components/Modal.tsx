@@ -3,16 +3,18 @@ import { useGlobalContext } from '../../context'
 import axios from 'axios'
 
 const Modal = () => {
-    const { selectedMovie, showModal } = useGlobalContext()
+    const { selectedMovie, showModal, setShowModal } = useGlobalContext()
 
     const baseUrl = 'https://image.tmdb.org/t/p/w300'
 
     return (
-        <aside className='modal-overlay'>
-            <section className='modal-container'>
+        <section className='modal-overlay' onClick={() => setShowModal!(false)}>
+            <section className='modal-container' onClick={e => e.stopPropagation()}>
+                <header className='modal-header'>
+                    <h1 className='modal-title'>{selectedMovie?.title}</h1>
+                    <h2 className='modal-release'>{selectedMovie?.release_date}</h2>
+                </header>
                 <img src={baseUrl+selectedMovie?.poster_path}/>
-                <h1>{selectedMovie?.title}</h1>
-                <h2>{selectedMovie?.release_date}</h2>
                 <h2>{selectedMovie?.overview}</h2>
                 <h4>Status: {selectedMovie?.status}</h4>
                 <h4>Language: {selectedMovie?.original_language}</h4>
@@ -23,7 +25,7 @@ const Modal = () => {
                 {selectedMovie?.genres?.map(obj => <span>{obj.name} - </span>)}
                 <iframe width="560" height="315" src={selectedMovie?.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </section>
-        </aside>
+        </section>
     )
 }
 
