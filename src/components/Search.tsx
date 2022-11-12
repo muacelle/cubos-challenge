@@ -21,12 +21,12 @@ const Search = () => {
 
     return (
         <header className='search-container'>
-            <h1>Melhores Filmes</h1>
-            <form>
+            <h1 className='title'>Movies</h1>
+            <form className='form'>
                 <input
                 type='text'
                 className='form-input' 
-                placeholder='Busque pelo nome, ano ou gênero'
+                placeholder='Search for movies by title or genre...'
                 value={text}
                 onChange={handleChange}
                 onKeyDown={handleKey}
