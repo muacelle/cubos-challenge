@@ -1,11 +1,14 @@
 import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
 import axios from 'axios'
+import getLang from '../languages'
 
 const Modal = () => {
     const { selectedMovie, showModal, setShowModal } = useGlobalContext()
 
     const baseUrl = 'https://image.tmdb.org/t/p/w300'
+
+    const lang = getLang(selectedMovie?.original_language)
 
     return (
         <section className='modal-overlay' onClick={() => setShowModal!(false)}>
@@ -37,7 +40,7 @@ const Modal = () => {
                                 </section>
                                 <section className='card'>
                                     <h3>Language</h3>
-                                    <p>{selectedMovie?.original_language}</p>
+                                    <p>{lang}</p>
                                 </section>
                                 <section className='card'>
                                     <h3>Runtime</h3>
