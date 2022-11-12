@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
 import axios from 'axios'
 import getLang from '../languages'
+import { formatCurrency } from '../formatter'
 
 const Modal = () => {
     const { selectedMovie, showModal, setShowModal } = useGlobalContext()
@@ -9,6 +10,8 @@ const Modal = () => {
     const baseUrl = 'https://image.tmdb.org/t/p/w300'
 
     const lang = getLang(selectedMovie?.original_language)
+    const [ budget, revenue, profit ] = [formatCurrency(selectedMovie?.budget), formatCurrency(selectedMovie?.revenue),
+    formatCurrency(selectedMovie?.revenue - selectedMovie?.budget)]
 
     return (
         <section className='modal-overlay' onClick={() => setShowModal!(false)}>
@@ -48,15 +51,15 @@ const Modal = () => {
                                 </section>
                                 <section className='card'>
                                     <h3>Budget</h3>
-                                    <p>${selectedMovie?.budget}</p>
+                                    <p>{budget}</p>
                                 </section>
                                 <section className='card'>
                                     <h3>Revenue</h3> 
-                                    <p>${selectedMovie?.revenue}</p>
+                                    <p>{revenue}</p>
                                 </section>
                                 <section className='card'>
                                     <h3>Profit</h3>
-                                    <p>${selectedMovie?.revenue - selectedMovie?.budget}</p>
+                                    <p>{profit}</p>
                                 </section>
                             </section>   
                         </section>
