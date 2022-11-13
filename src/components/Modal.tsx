@@ -84,8 +84,7 @@ const Modal = () => {
 
                 <section className='modal-video'>
                     <iframe 
-                    width="1000" 
-                    height="500" 
+                    className='trailer'
                     src={selectedMovie?.trailer} 
                     title="YouTube video player" 
                     frameBorder="0" 

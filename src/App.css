@@ -111,8 +111,6 @@ html {
   top: 15px;
   cursor: pointer;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .average {
@@ -179,7 +177,9 @@ html {
   }
 
   .results-title {
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 
@@ -336,6 +336,32 @@ html {
   border-radius: 50%;
 }
 
-.modal-video {
-  text-align: center;
+.trailer {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+@media all and (max-width: 650px) {
+  .modal-container {
+    width: 100%;
+  }
+
+  .modal-movie {
+    flex-direction: column;
+    max-height: 3000px;
+  }
+
+  .info-cards {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .modal-genres {
+    flex-wrap: wrap;
+  }
+
+  .modal-poster {
+    order: -1;
+    text-align: center;
+  }
 }
