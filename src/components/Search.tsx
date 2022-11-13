@@ -3,7 +3,7 @@ import { useGlobalContext } from '../../context'
 
 const Search = () => {
 
-    const { fetchResults } = useGlobalContext()
+    const { fetchResults, setCurrentPage } = useGlobalContext()
 
     const [text, setText] = useState('')
 
@@ -15,6 +15,7 @@ const Search = () => {
         if (e.key === 'Enter') {
             e.preventDefault();
             fetchResults!(text)
+            setCurrentPage!(1)
         }
     }
 
