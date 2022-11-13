@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useGlobalContext } from '../../context'
 import genres from '../helpers/genres'
 import tooBig from '../helpers/synopsis'
@@ -20,7 +19,7 @@ const Results = () => {
             <ul className='results-list'>
                 {currentPosts && currentPosts.map(re => {
                     return (
-                        <li key={re.id} className='results-movie'>
+                        <li key={(re.id).toString()} className='results-movie'>
                             <section className='poster-section'>
                             {re.poster_path ? 
                             <img src={baseUrl+re.poster_path} className='poster' onClick={() => selectMovie!(re.id)}/> : 
@@ -32,10 +31,10 @@ const Results = () => {
                                     <h3 className='results-title' onClick={() => selectMovie!(re.id)}>{re.title}</h3>
                                 </header>
                                 <p className='release'>{re.release_date}</p>
-                                {re.overview.length < 600 ? <p className='overview'>{re.overview}</p> : <p className='overview'>{tooBig(re.overview)}</p>}
+                                {re.overview.length < 550 ? <p className='overview'>{re.overview}</p> : <p className='overview'>{tooBig(re.overview)}</p>}
                                 <section className='genres'>
                                     {genres.map(obj => {
-                                        if (re.genre_ids.includes(obj.id)) return <span>{obj.name}</span>
+                                        if (re.genre_ids.includes(obj.id)) return <span key={obj.id}>{obj.name}</span>
                                     })}
                                 </section>
                             </section>

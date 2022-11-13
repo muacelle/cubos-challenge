@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
-import axios from 'axios'
 import getLang from '../helpers/languages'
 import tooBig from '../helpers/synopsis'
 import { formatCurrency } from '../helpers/formatter'
@@ -10,9 +8,9 @@ const Modal = () => {
     const { selectedMovie, showModal, setShowModal } = useGlobalContext()
 
     const baseUrl = 'https://image.tmdb.org/t/p/w300'
-    const lang = getLang(selectedMovie?.original_language)
-    const [ budget, revenue, profit ] = [formatCurrency(selectedMovie?.budget), formatCurrency(selectedMovie?.revenue),
-    formatCurrency(selectedMovie?.revenue - selectedMovie?.budget)]
+    const lang = getLang(selectedMovie!.original_language)
+    const [ budget, revenue, profit ] = [formatCurrency(selectedMovie!.budget), formatCurrency(selectedMovie!.revenue),
+    formatCurrency(selectedMovie!.revenue - selectedMovie!.budget)]
 
     return (
         <section className='modal-overlay' onClick={() => {
@@ -34,7 +32,7 @@ const Modal = () => {
                         <section className='modal-overview'>
                             <h2>Synopsis</h2>
                             <hr/>
-                            {selectedMovie?.overview.length < 600 ? <p>{selectedMovie?.overview}</p> : <p>{tooBig(selectedMovie?.overview)}</p>}
+                            {selectedMovie!.overview.length < 600 ? <p>{selectedMovie?.overview}</p> : <p>{tooBig(selectedMovie!.overview)}</p>}
                         </section>
 
                         <section className='modal-info'>
@@ -69,11 +67,11 @@ const Modal = () => {
                         </section>
 
                         <section className='modal-genres'>
-                            {selectedMovie?.genres?.map(obj => <span>{obj.name}</span>)}
+                            {selectedMovie?.genres.map(obj => <span key={obj.id}>{obj.name}</span>)}
                         </section>
 
                         <section className='average-section'>
-                            <span className='modal-average'>{(selectedMovie?.vote_average * 10).toFixed(0)}%</span>
+                            <span className='modal-average'>{(selectedMovie!.vote_average * 10).toFixed(0)}%</span>
                         </section>
 
                     </section>

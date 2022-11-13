@@ -4,7 +4,7 @@ const Pagination = () => {
 
     const { results, setCurrentPage, currentPage } = useGlobalContext()
 
-    let numPages = Math.ceil(results.length / 5)
+    let numPages = Math.ceil(results!.length / 5)
     let pages = []
 
     for (let i = 1; i <= numPages; i++) {
@@ -17,7 +17,7 @@ const Pagination = () => {
                 {pages && pages.map((page, index) => 
                     (<button 
                         key={index} 
-                        onClick={() => setCurrentPage(page)} 
+                        onClick={() => setCurrentPage!(page)} 
                         className={page === currentPage ? 'current-btn' : 'btn'}>{page}
                     </button>)
                 )}
