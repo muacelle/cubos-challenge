@@ -69,46 +69,36 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=${isGenre.id}`
         : url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${term}&page=1&include_adult=false`
 
-        try {
-            const data = await axios(url)
-            const movies = await data.data.results
-            setResults(movies)
-        }
-        catch (e) {
-            console.log(e) // tratar erros
-        }
+        const data = await axios(url)
+        const movies = await data.data.results
+        setResults(movies)
+ 
     }
 
     const selectMovie = async (id: number) => {
-        try {
-            const data = await axios(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
-            const movieInfo: MovieInfo = await data.data
-            const trailerUrl = await getTrailer(id)
-            if (trailerUrl) {
-                movieInfo.trailer = trailerUrl
-            }
-            setSelectedMovie(movieInfo)
-            setShowModal(true)
+
+        const data = await axios(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
+        const movieInfo: MovieInfo = await data.data
+        const trailerUrl = await getTrailer(id)
+        if (trailerUrl) {
+            movieInfo.trailer = trailerUrl
         }
-        catch (e) {
-            console.log(e) // tratar erros
-        }
+        setSelectedMovie(movieInfo)
+        setShowModal(true)
+        document.body.style.overflow = 'hidden'
     }
 
     const getTrailer = async (id: number) => {
-        try {
-            const data = await axios(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
-            const results: Trailer[] = await data.data.results
-            const trailer = results.find(obj => obj.type == 'Trailer')
-            if (trailer) {
-                const key = trailer.key
-                const url = `https://www.youtube.com/embed/${key}`
-                return url
-            }
+
+        const data = await axios(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+        const results: Trailer[] = await data.data.results
+        const trailer = results.find(obj => obj.type == 'Trailer')
+        if (trailer) {
+            const key = trailer.key
+            const url = `https://www.youtube.com/embed/${key}`
+            return url
         }
-        catch (e) {
-            console.log(e) // tratar erros
-        }
+
     }
 
     return (

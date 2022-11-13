@@ -10,13 +10,15 @@ const Modal = () => {
     const { selectedMovie, showModal, setShowModal } = useGlobalContext()
 
     const baseUrl = 'https://image.tmdb.org/t/p/w300'
-
     const lang = getLang(selectedMovie?.original_language)
     const [ budget, revenue, profit ] = [formatCurrency(selectedMovie?.budget), formatCurrency(selectedMovie?.revenue),
     formatCurrency(selectedMovie?.revenue - selectedMovie?.budget)]
 
     return (
-        <section className='modal-overlay' onClick={() => setShowModal!(false)}>
+        <section className='modal-overlay' onClick={() => {
+            setShowModal!(false)
+            document.body.style.overflow = 'unset'
+        }}>
 
             <section className='modal-container' onClick={e => e.stopPropagation()}>
 
@@ -77,19 +79,22 @@ const Modal = () => {
                     </section>
 
                     <section className='modal-poster'>
-                        {selectedMovie.poster_path ? <img src={baseUrl+selectedMovie?.poster_path}/> : <img src={poster}/>}
+                        {selectedMovie?.poster_path ? <img src={baseUrl+selectedMovie?.poster_path}/> : <img src={poster}/>}
                     </section>
 
                 </section>
 
-                <section className='modal-video'>
-                    <iframe 
-                    className='trailer'
-                    src={selectedMovie?.trailer} 
-                    title="YouTube video player" 
-                    frameBorder="0" 
-                    allowFullScreen></iframe>
-                </section>
+                {selectedMovie?.trailer &&
+                    <section className='modal-video'>
+                        <iframe 
+                            className='trailer'
+                            src={selectedMovie?.trailer} 
+                            title="YouTube video player" 
+                            frameBorder="0" 
+                            allowFullScreen>
+                        </iframe>
+                    </section>
+                }
 
             </section>
 

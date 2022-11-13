@@ -346,6 +346,11 @@ html {
     width: 100%;
   }
 
+  .modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .modal-movie {
     flex-direction: column;
     max-height: 3000px;

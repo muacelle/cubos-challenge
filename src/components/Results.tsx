@@ -6,7 +6,7 @@ import poster from '../images/poster-placeholder.png'
 
 const Results = () => {
 
-    const { results, selectMovie, selectedMovie, currentPage } = useGlobalContext()
+    const { results, selectMovie, selectedMovie, currentPage, showModal } = useGlobalContext()
 
     const baseUrl = 'https://image.tmdb.org/t/p/w200'
 
