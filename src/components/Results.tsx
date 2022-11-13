@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useGlobalContext } from '../../context'
 import genres from '../genres'
+import tooBig from '../synopsis'
 
 const Results = () => {
 
@@ -28,7 +29,7 @@ const Results = () => {
                                     <h3 className='results-title' onClick={() => selectMovie!(re.id)}>{re.title}</h3>
                                 </header>
                                 <p className='release'>{re.release_date}</p>
-                                <p className='overview'>{re.overview}</p>
+                                {re.overview.length < 600 ? <p className='overview'>{re.overview}</p> : <p className='overview'>{tooBig(re.overview)}</p>}
                                 <section className='genres'>
                                     {genres.map(obj => {
                                         if (re.genre_ids.includes(obj.id)) return <span>{obj.name}</span>

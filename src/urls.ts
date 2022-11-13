@@ -1,4 +1,4 @@
 export default {
-    BASE_URL: 'https://api.themoviedb.org/3/',
+    IMAGE_BASE_MODAL: 'https://image.tmdb.org/t/p/w300',
     SEARCH: '/search'
 }
