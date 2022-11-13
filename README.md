@@ -31,8 +31,9 @@ Este projeto foi montado utilizando `Vite`, `TypeScript`, `React` e `Axios`.
 
 1. Baixe o repositório;
 2. Insira a sua API Key do TMDB no arquivo `.env`;
-3. No seu terminal, digite `npm run dev`;
-4. Abra o link no seu navegador. 
+3. No seu terminal, digite `npm install`;
+4. Concluída a instalação, digite `npm run dev`;
+5. Abra o link no seu navegador. 
 
 ## Notas
 
