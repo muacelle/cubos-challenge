@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useGlobalContext } from '../../context'
-import genres from '../genres'
+import genres from '../modules/genres'
 
 const Search = () => {
 

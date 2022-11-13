@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
 import axios from 'axios'
-import getLang from '../languages'
-import { formatCurrency } from '../formatter'
+import getLang from '../modules/languages'
+import { formatCurrency } from '../modules/formatter'
 
 const Modal = () => {
     const { selectedMovie, showModal, setShowModal } = useGlobalContext()

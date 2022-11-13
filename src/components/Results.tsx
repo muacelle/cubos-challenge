@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useGlobalContext } from '../../context'
-import genres from '../genres'
-import tooBig from '../synopsis'
+import genres from '../modules/genres'
+import tooBig from '../modules/synopsis'
 
 const Results = () => {
 
