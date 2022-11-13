@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useGlobalContext } from '../../context'
-import genres from '../modules/genres'
-import tooBig from '../modules/synopsis'
+import genres from '../helpers/genres'
+import tooBig from '../helpers/synopsis'
 import poster from '../images/poster-placeholder.png'
 
 const Results = () => {

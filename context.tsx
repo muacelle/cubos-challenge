@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import axios from 'axios'
-import genres from './src/modules/genres'
+import genres from './src/helpers/genres'
 
 type ResultList = {
     id: number

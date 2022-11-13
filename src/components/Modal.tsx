@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
 import axios from 'axios'
-import getLang from '../modules/languages'
-import tooBig from '../modules/synopsis'
-import { formatCurrency } from '../modules/formatter'
+import getLang from '../helpers/languages'
+import tooBig from '../helpers/synopsis'
+import { formatCurrency } from '../helpers/formatter'
 import poster from '../images/poster-placeholder.png'
 
 const Modal = () => {
