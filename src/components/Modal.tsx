@@ -4,6 +4,7 @@ import axios from 'axios'
 import getLang from '../modules/languages'
 import tooBig from '../modules/synopsis'
 import { formatCurrency } from '../modules/formatter'
+import poster from '../images/poster-placeholder.png'
 
 const Modal = () => {
     const { selectedMovie, showModal, setShowModal } = useGlobalContext()
@@ -76,7 +77,7 @@ const Modal = () => {
                     </section>
 
                     <section className='modal-poster'>
-                        <img src={baseUrl+selectedMovie?.poster_path}/>
+                        {selectedMovie.poster_path ? <img src={baseUrl+selectedMovie?.poster_path}/> : <img src={poster}/>}
                     </section>
 
                 </section>

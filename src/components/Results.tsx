@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useGlobalContext } from '../../context'
 import genres from '../modules/genres'
 import tooBig from '../modules/synopsis'
+import poster from '../images/poster-placeholder.png'
 
 const Results = () => {
 
@@ -21,7 +22,9 @@ const Results = () => {
                     return (
                         <li key={re.id} className='results-movie'>
                             <section>
-                                <img src={baseUrl+re.poster_path} className='poster' onClick={() => selectMovie!(re.id)}/>
+                            {re.poster_path ? 
+                            <img src={baseUrl+re.poster_path} className='poster' onClick={() => selectMovie!(re.id)}/> : 
+                            <img src={poster} className='poster' onClick={() => selectMovie!(re.id)}/>}
                             </section>
                             <section className='results-info'>
                                 <header className='header-info'>
