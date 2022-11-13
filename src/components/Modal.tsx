@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useGlobalContext } from '../../context'
 import axios from 'axios'
 import getLang from '../modules/languages'
+import tooBig from '../modules/synopsis'
 import { formatCurrency } from '../modules/formatter'
 
 const Modal = () => {
@@ -30,7 +31,7 @@ const Modal = () => {
                         <section className='modal-overview'>
                             <h2>Synopsis</h2>
                             <hr/>
-                            <p>{selectedMovie?.overview}</p>
+                            {selectedMovie?.overview.length < 600 ? <p>{selectedMovie?.overview}</p> : <p>{tooBig(selectedMovie?.overview)}</p>}
                         </section>
 
                         <section className='modal-info'>
