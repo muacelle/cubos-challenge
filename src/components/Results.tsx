@@ -21,7 +21,7 @@ const Results = () => {
                 {currentPosts && currentPosts.map(re => {
                     return (
                         <li key={re.id} className='results-movie'>
-                            <section>
+                            <section className='poster-section'>
                             {re.poster_path ? 
                             <img src={baseUrl+re.poster_path} className='poster' onClick={() => selectMovie!(re.id)}/> : 
                             <img src={poster} className='poster' onClick={() => selectMovie!(re.id)}/>}
