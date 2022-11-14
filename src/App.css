@@ -356,6 +356,10 @@ html {
     max-height: 3000px;
   }
 
+  .modal-details {
+    position:unset;
+  }
+
   .info-cards {
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -363,6 +367,7 @@ html {
 
   .modal-genres {
     flex-wrap: wrap;
+    position: relative;
   }
 
   .modal-poster {
