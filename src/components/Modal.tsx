@@ -17,7 +17,7 @@ const Modal = () => {
         name: string
     }
 
-    return (
+    if (selectedMovie) return (
         <section className='modal-overlay' onClick={() => {
             setShowModal!(false)
             document.body.style.overflow = 'unset'
@@ -26,8 +26,8 @@ const Modal = () => {
             <section className='modal-container' onClick={e => e.stopPropagation()}>
 
                 <header className='modal-header'>
-                    <h1 className='modal-title'>{selectedMovie?.title}</h1>
-                    <h2 className='modal-release'>{selectedMovie?.release_date}</h2>
+                    <h1 className='modal-title'>{selectedMovie.title}</h1>
+                    <h2 className='modal-release'>{selectedMovie.release_date}</h2>
                 </header>
 
                 <section className='modal-movie'>
@@ -37,7 +37,7 @@ const Modal = () => {
                         <section className='modal-overview'>
                             <h2>Synopsis</h2>
                             <hr/>
-                            {selectedMovie!.overview.length < 600 ? <p>{selectedMovie?.overview}</p> : <p>{tooBig(selectedMovie!.overview)}</p>}
+                            {selectedMovie.overview.length < 600 ? <p>{selectedMovie.overview}</p> : <p>{tooBig(selectedMovie.overview)}</p>}
                         </section>
 
                         <section className='modal-info'>
@@ -46,7 +46,7 @@ const Modal = () => {
                             <section className='info-cards'>
                                 <section className='card'>
                                     <h3>Status</h3>
-                                    <p>{selectedMovie?.status}</p>
+                                    <p>{selectedMovie.status}</p>
                                 </section>
                                 <section className='card'>
                                     <h3>Language</h3>
@@ -54,7 +54,7 @@ const Modal = () => {
                                 </section>
                                 <section className='card'>
                                     <h3>Runtime</h3>
-                                    <p>{selectedMovie?.runtime} min</p>
+                                    <p>{selectedMovie.runtime} min</p>
                                 </section>
                                 <section className='card'>
                                     <h3>Budget</h3>
@@ -72,26 +72,26 @@ const Modal = () => {
                         </section>
 
                         <section className='modal-genres'>
-                            {selectedMovie?.genres.map((obj: Genre) => <span key={obj.id}>{obj.name}</span>)}
+                            {selectedMovie.genres.map((obj: Genre) => <span key={obj.id}>{obj.name}</span>)}
                         </section>
 
                         <section className='average-section'>
-                            <span className='modal-average'>{(selectedMovie!.vote_average * 10).toFixed(0)}%</span>
+                            <span className='modal-average'>{(selectedMovie.vote_average * 10).toFixed(0)}%</span>
                         </section>
 
                     </section>
 
                     <section className='modal-poster'>
-                        {selectedMovie?.poster_path ? <img src={baseUrl+selectedMovie?.poster_path}/> : <img src={poster}/>}
+                        {selectedMovie.poster_path ? <img src={baseUrl+selectedMovie.poster_path}/> : <img src={poster}/>}
                     </section>
 
                 </section>
 
-                {selectedMovie?.trailer &&
+                {selectedMovie.trailer &&
                     <section className='modal-video'>
                         <iframe 
                             className='trailer'
-                            src={selectedMovie?.trailer} 
+                            src={selectedMovie.trailer} 
                             title="YouTube video player" 
                             frameBorder="0" 
                             allowFullScreen>
