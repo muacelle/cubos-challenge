@@ -8,8 +8,11 @@ O projeto possui todas as funcionalidades requeridas:
 
     ✔️ Permitir buscar filmes por nome ou gênero;
     ✔️ Resultados de busca paginados, 5 por página;
-    ✔️ Exibir nos resultados da busca: nome, cartaz, data de lançamento, sinopse, pontuação do filme e categorias;
-    ✔️ Possa ver, ao clicar em um resultado da busca, detalhes do filme além dos mostrados na busca, como: status (lançado, previsto, etc), idioma, duração, orçamento, receita, lucro, categorias e trailer, quando disponíveis.
+    ✔️ Exibir nos resultados da busca: nome, cartaz, data de lançamento, sinopse, pontuação do filme 
+    e categorias;
+    ✔️ Possa ver, ao clicar em um resultado da busca, detalhes do filme além dos mostrados na busca, 
+    como: status (lançado, previsto, etc), idioma, duração, orçamento, receita, lucro, categorias e 
+    trailer, quando disponíveis.
 
 ## O que este projeto utiliza?
 Este projeto foi montado utilizando `Vite`, `TypeScript`, `React` e `Axios`.
