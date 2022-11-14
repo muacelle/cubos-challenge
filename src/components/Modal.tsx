@@ -12,6 +12,11 @@ const Modal = () => {
     const [ budget, revenue, profit ] = [formatCurrency(selectedMovie!.budget), formatCurrency(selectedMovie!.revenue),
     formatCurrency(selectedMovie!.revenue - selectedMovie!.budget)]
 
+    type Genre = {
+        id: number
+        name: string
+    }
+
     return (
         <section className='modal-overlay' onClick={() => {
             setShowModal!(false)
@@ -67,7 +72,7 @@ const Modal = () => {
                         </section>
 
                         <section className='modal-genres'>
-                            {selectedMovie?.genres.map(obj => <span key={obj.id}>{obj.name}</span>)}
+                            {selectedMovie?.genres.map((obj: Genre) => <span key={obj.id}>{obj.name}</span>)}
                         </section>
 
                         <section className='average-section'>
