@@ -37,7 +37,7 @@ const Modal = () => {
                         <section className='modal-overview'>
                             <h2>Synopsis</h2>
                             <hr/>
-                            {selectedMovie.overview.length < 600 ? <p>{selectedMovie.overview}</p> : <p>{tooBig(selectedMovie.overview)}</p>}
+                            {selectedMovie.overview.length < 550 ? <p>{selectedMovie.overview}</p> : <p>{tooBig(selectedMovie.overview)}</p>}
                         </section>
 
                         <section className='modal-info'>
